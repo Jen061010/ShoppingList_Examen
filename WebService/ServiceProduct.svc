@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="WebService.IServiceProduct,WebService" CodeBehind="ServiceProduct.svc.cs" Factory="Autofac.Integration.Wcf.AutofacServiceHostFactory, Autofac.Integration.Wcf"%>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="WebService.IServiceProduct,WebService" Factory="Autofac.Integration.Wcf.AutofacServiceHostFactory, Autofac.Integration.Wcf"%>
