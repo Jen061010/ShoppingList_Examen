@@ -12,33 +12,30 @@ namespace WebService
    
     public class ServiceTicket : ServiceBase,IServiceTicket
     {
-        readonly IServiceTicket _serviceTicket;
-        readonly IUnitOfWork _unitOfWork;
-        public ServiceTicket(IServiceTicket serviceTicket, IUnitOfWork unitOfWork)
+        readonly IRepositoryTicket _repositoryTicket;
+        public ServiceTicket(IRepositoryTicket repositoryTicket, IUnitOfWork unitOfWork)
             :base(unitOfWork)
         {
-            if (null == serviceTicket) 
+            if (null == repositoryTicket) 
             {
-                throw new ArgumentNullException("serviceTicket");
+                throw new ArgumentNullException("repositoryTicket");
             }
-            if (null == unitOfWork)
-            {
-                throw new ArgumentNullException("unitOfWork");
-            }
-            _serviceTicket = serviceTicket;
-            _unitOfWork = unitOfWork;
+
+            _repositoryTicket = repositoryTicket;
+            
         }
         public IEnumerable<Ticket> GetAlls(DateTime initialDate, DateTime finalDate)
         {
-            return _serviceTicket.GetAlls( initialDate,finalDate);
+            return _repositoryTicket.GetAll(initialDate, finalDate);
         }
         public Ticket Add(Ticket ticket)
         {
-            return _serviceTicket.Add(ticket);
+            return _repositoryTicket.Add(ticket);
         }
         public Ticket Get(string id) 
         {
-            return _serviceTicket.Get(id);
+            var id_int = Convert.ToInt32(id);
+            return _repositoryTicket.Get(id_int);
         }
     }
 }

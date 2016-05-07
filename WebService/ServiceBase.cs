@@ -6,7 +6,7 @@ using System.Web;
 
 namespace WebService
 {
-    public class ServiceBase:IDisposable
+    public class ServiceBase
     {
         readonly IUnitOfWork _unitOfWork;
         public ServiceBase(IUnitOfWork unitOfWork)

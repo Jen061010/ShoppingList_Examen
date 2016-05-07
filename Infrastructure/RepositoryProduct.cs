@@ -16,7 +16,7 @@ namespace Infrastructure
         }
         public IEnumerable<Product> GetAll() 
         {
-            return Entity.Select(c => c);
+            return Entity.Select(c => c).ToList();
         }
 
     }

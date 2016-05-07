@@ -115,6 +115,10 @@
       <Project>{9c2f2a1f-a13e-435d-85fd-5158a82796af}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ShoppingList\ShoppingList.csproj">
+      <Project>{1665f9a2-e075-45e6-a269-a28b4d2ffe31}</Project>
+      <Name>ShoppingList</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />

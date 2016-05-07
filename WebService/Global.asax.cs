@@ -19,11 +19,11 @@ namespace WebService
             var builder = new ContainerBuilder();
 
             // Register your service implementations.
-            builder.RegisterType<ServiceProduct>().As<IServiceProduct>();
-            builder.RegisterType<ServiceTicket>().As<IServiceTicket>();
+            builder.RegisterType<UsersContext>().As<IDbContext>().As<IUnitOfWork>().InstancePerLifetimeScope();
             builder.RegisterType<RepositoryProduct>().As<IRepositoryProduct>();
             builder.RegisterType<RepositoryTicket>().As<IRepositoryTicket>();
-            builder.RegisterType<UsersContext>().As<IDbContext>().As<IUnitOfWork>().InstancePerLifetimeScope();
+            builder.RegisterType<WebService.ServiceProduct>().As<IServiceProduct>();
+            builder.RegisterType<WebService.ServiceTicket>().As<IServiceTicket>();
 
             // Set the dependency resolver.
             var container = builder.Build();

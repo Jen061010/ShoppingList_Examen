@@ -13,25 +13,20 @@ namespace WebService
     
     public class ServiceProduct : ServiceBase,IServiceProduct
     {
-        readonly IServiceProduct _serviceProduct;
-        readonly IUnitOfWork _unitOfWork;
-        public ServiceProduct(IServiceProduct serviceProduct, IUnitOfWork unitOfWork)
-            :base(unitOfWork)
+        readonly IRepositoryProduct _repositoryProduct;
+        public ServiceProduct(IRepositoryProduct repositoryProduct, IUnitOfWork unitOfWork)
+            : base(unitOfWork)
         {
-            if (null == serviceProduct) 
+            if (null == repositoryProduct)
             {
-                throw new ArgumentNullException("serviceProduct");
+                throw new ArgumentNullException("repositoryProduct");
             }
-            if (null == unitOfWork)
-            {
-                throw new ArgumentNullException("unitOfWork");
-            }
-            _serviceProduct = serviceProduct;
-            _unitOfWork = unitOfWork;
+
+            _repositoryProduct = repositoryProduct;
         }
         public IEnumerable<Product> GetAlls()
         {
-            return _serviceProduct.GetAlls();
+            return _repositoryProduct.GetAll();
         }
             
     }
